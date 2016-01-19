@@ -13,8 +13,10 @@ class CardSet():
         self.card_set.append(card_set)
 
     def to_string(self):
+        print "["
         for c in self.card_set:
             print c.to_string()
+        print "]"
 
     def most_common_rank(self):
         r = [card.rank for card in self.card_set]

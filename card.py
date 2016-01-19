@@ -22,18 +22,24 @@ class Card():
     DIAMONDS = 2
     SPADES = 3
 
-    rank_string_map = ['ACE_LOW', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE']
-    suit_string_map = ["CLUBS","HEARTS","DIAMONDS","SPADES"]
+    long_rank_string_map = ['ACE_LOW', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN', 'JACK', 'QUEEN', 'KING', 'ACE']
+    long_suit_string_map = ["CLUBS","HEARTS","DIAMONDS","SPADES"]
+    
+    rank_string_map = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    suit_string_map = ["c","h","d","s"]
 
-    def __init__(self, rank, suit):
-        self.rank = rank
-        self.suit = suit
+    def __init__(self, rank_suit_string):
+        """
+        Expects a string of the form ranksuit, i.e. As for Ace of spades
+        """
+        self.rank = Card.rank_string_map.index(rank_suit_string[0])
+        self.suit = Card.suit_string_map.index(rank_suit_string[1])
 
     def __hash__(self):
         return (self.rank*10) + self.suit
 
     def to_string(self):
-        result = Card.rank_string_map[self.rank] + " of " + Card.suit_string_map[self.suit]
+        result = Card.rank_string_map[self.rank] + Card.suit_string_map[self.suit]
         return result
 
         

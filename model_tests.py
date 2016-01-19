@@ -7,20 +7,20 @@ class CardSetTest(unittest.TestCase):
 
     def test_most_common_rank(self):
         sample_set = CardSet()
-        sample_set.add_card(Card(Card.FIVE, Card.SPADES))
-        sample_set.add_card(Card(Card.FIVE, Card.CLUBS))
-        sample_set.add_card(Card(Card.SEVEN, Card.SPADES))
-        sample_set.add_card(Card(Card.JACK, Card.HEARTS))
+        sample_set.add_card(Card('5s'))
+        sample_set.add_card(Card('5c'))
+        sample_set.add_card(Card('6h'))
+        sample_set.add_card(Card('Jh'))
         result = sample_set.most_common_rank()
         print(sample_set.to_string())
         self.assertEqual(result, Card.FIVE)
 
     def test_most_common_suit(self):
         sample_set = CardSet()
-        sample_set.add_card(Card(Card.FIVE, Card.SPADES))
-        sample_set.add_card(Card(Card.SIX, Card.SPADES))
-        sample_set.add_card(Card(Card.SEVEN, Card.SPADES))
-        sample_set.add_card(Card(Card.JACK, Card.HEARTS))
+        sample_set.add_card(Card('5s'))
+        sample_set.add_card(Card('6s'))
+        sample_set.add_card(Card('7h'))
+        sample_set.add_card(Card('Jc'))
         result = sample_set.most_common_suit()
         print(sample_set.to_string())
         self.assertEqual(result, Card.SPADES)
